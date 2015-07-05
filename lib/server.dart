@@ -13,6 +13,7 @@ makeMiniServer(){
   var handlerWebSocket;
   var handlerStatic; 
   var handler;
+  var shelfHandler;
 
   force = new Force();
 
@@ -30,7 +31,7 @@ makeMiniServer(){
                 .add(handlerWebSocket)
                 .handler;
 
-  var shelfHandler = const shelf.Pipeline()
+  shelfHandler = const shelf.Pipeline()
                   .addMiddleware(shelf.logRequests())
                   .addHandler(handler);
 
