@@ -1,4 +1,4 @@
-name: mini.engine
+name: mini_engine
 version: 0.0.1
 description: Realtime engine with force framework and shelf library
 author: <Vostrikov Vitaliy> <rasart.pro@gmail.com>
@@ -16,7 +16,7 @@ dependencies:
   rethinkdb_driver: any 
   wired: any
 
-nsformers:
+transformers:
   - polymer:
       entry_points: web/index.html
   - sass:

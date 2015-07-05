@@ -1,6 +1,6 @@
 library server;
 
-import 'package:mini.engine/server.dart';
+import 'package:mini_engine/server.dart';
 
 main(){
  makeMiniServer(); 
