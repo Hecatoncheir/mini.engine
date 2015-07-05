@@ -1,0 +1,25 @@
+name: mini.engine
+version: 0.0.1
+description: Realtime engine with force framework and shelf library
+author: <Vostrikov Vitaliy> <rasart.pro@gmail.com>
+homepage: https://github.com/Rasarts/mini.engine
+
+dependencies:
+  browser: any
+  polymer: any
+  sass: any
+  shelf: any
+  shelf_web_socket: any
+  shelf_static: any
+  force: any
+  route_hierarchical: any
+  rethinkdb_driver: any 
+  wired: any
+
+nsformers:
+  - polymer:
+      entry_points: web/index.html
+  - sass:
+      compass: true
+      style: compact
+      copy-sources: false
