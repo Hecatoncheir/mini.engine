@@ -8,7 +8,7 @@ import 'package:shelf_web_socket/shelf_web_socket.dart';
 import 'package:shelf_static/shelf_static.dart';
 import 'package:force/force_serverside.dart';
 
-Force forceServer;
+Force WsServer;
 
 makeMiniServer(){
   var handlerWebSocket;
@@ -16,11 +16,11 @@ makeMiniServer(){
   var handler;
   var shelfHandler;
 
-  forceServer = new Force();
+  WsServer = new Force();
 
   forceHandle(webSocket){
     StreamSocket ss = new StreamSocket(webSocket);
-    return forceServer.handle(ss);
+    return WsServer.handle(ss);
   }
 
   handlerWebSocket = webSocketHandler(forceHandle);
