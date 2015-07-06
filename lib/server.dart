@@ -10,34 +10,40 @@ import 'package:force/force_serverside.dart';
 
 Force WsServer;
 
-makeMiniServer(){
+class MiniServer {
+  Force WsServer;
+
   var handlerWebSocket;
-  var handlerStatic; 
+  var handlerStatic;
   var handler;
   var shelfHandler;
 
-  WsServer = new Force();
+  MiniServer(){
+    WsServer = new Force();
 
-  forceHandle(webSocket){
-    StreamSocket ss = new StreamSocket(webSocket);
-    return WsServer.handle(ss);
-  }
+    forceHandle(webSocket){
+      StreamSocket ss = new StreamSocket(webSocket);
+      return WsServer.handle(ss);
+    }
 
-  handlerWebSocket = webSocketHandler(forceHandle);
+    handlerWebSocket = webSocketHandler(forceHandle);
 
-  handlerStatic = createStaticHandler('build/web', defaultDocument: 'index.html');
+    handlerStatic = createStaticHandler('build/web', defaultDocument: 'index.html');
 
-  handler = new shelf.Cascade()
-                .add(handlerStatic)
-                .add(handlerWebSocket)
-                .handler;
+    handler = new shelf.Cascade()
+              .add(handlerStatic)
+              .add(handlerWebSocket)
+              .handler;
 
-  shelfHandler = const shelf.Pipeline()
+    shelfHandler = const shelf.Pipeline()
                   .addMiddleware(shelf.logRequests())
                   .addHandler(handler);
+  }
 
-  io.serve(shelfHandler, 'localhost', 8080).then((server) {
-    print('MiniServerEngine at http://${server.address.host}:${server.port}');
-  });
-  
+  makeMiniServerEngine(){
+    io.serve(shelfHandler, 'localhost', 8080).then((server) {
+      print('MiniServerEngine: Serving at http://${server.address.host}:${server.port}');
+    });
+  }
+
 }
