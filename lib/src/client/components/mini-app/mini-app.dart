@@ -3,8 +3,5 @@ import 'package:polymer/polymer.dart';
 
 @CustomTag('mini-app')
 class MiniApp extends PolymerElement {
-  MiniApp.created():super.created(){
-    polymerCreated();
-    makeMiniClient();
-  }
+  MiniApp.created():super.created();
 }

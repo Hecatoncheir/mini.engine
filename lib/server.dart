@@ -37,7 +37,7 @@ makeMiniServer(){
                   .addHandler(handler);
 
   io.serve(shelfHandler, 'localhost', 8080).then((server) {
-    print('Serving at http://${server.address.host}:${server.port}');
+    print('MiniServerEngine at http://${server.address.host}:${server.port}');
   });
   
 }

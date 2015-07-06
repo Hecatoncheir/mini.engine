@@ -20,17 +20,19 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
-    <!--Components-->
-    <link rel="import" href="packages/mini_engine/src/client/components/mini-app/mini-app.html">
+    <!--Export-->
+    <script type="application/dart">
+        export 'main.dart';</script>
 
-    <!--<link rel="stylesheet" href="stylesheets/main.css">-->
+    <!--Components-->
+    <link rel="import"
+          href="packages/mini_engine/src/client/components/mini-app/mini-app.html">
+
 </head>
 <body unresolved>
 
 <mini-app></mini-app>
 <mini-copyright></mini-copyright>
 
-<script type="application/dart">export 'package:polymer/init.dart';</script>
-<script src="packages/browser/dart.js"></script>
 </body>
 </html>
