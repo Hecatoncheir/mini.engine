@@ -6,8 +6,6 @@ import 'package:polymer/polymer.dart';
 
 export 'package:polymer/init.dart';
 
-MiniClient WsClient;
-
 class MiniClient {
   ForceClient WsClient;
 
@@ -19,12 +17,4 @@ class MiniClient {
     WsClient = new ForceClient();
   }
 
-}
-
-@whenPolymerReady
-void onReady(){
-  MiniClient miniClient = new MiniClient();
-  WsClient = miniClient.WsClient;
-
-  miniClient.makeMiniClientEngine();
 }
